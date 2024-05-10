@@ -132,6 +132,7 @@ export interface StylingOption {
   arrowIndent?: number;
   todayColor?: string;
   weekendColor?: string;
+  holidayDates?: Dates[];
   TooltipContent?: React.FC<{
     task: Task;
     fontSize: string;

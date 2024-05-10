@@ -58,6 +58,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   arrowIndent = 20,
   todayColor = "rgba(252, 248, 227, 1)",
   weekendColor = "transparent",
+  holidayDates = [],
   viewDate,
   TooltipContent = StandardTooltipContent,
   TaskListHeader = TaskListHeaderDefault,
@@ -401,6 +402,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     dates: dateSetup.dates,
     todayColor,
     weekendColor,
+    holidayDates,
     rtl,
   };
   const calendarProps: CalendarProps = {

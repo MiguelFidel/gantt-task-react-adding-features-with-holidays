@@ -11,6 +11,7 @@ export type GridBodyProps = {
   columnWidth: number;
   todayColor: string;
   weekendColor: string;
+  holidayDates: Date[];
   rtl: boolean;
 };
 export const GridBody: React.FC<GridBodyProps> = ({
@@ -21,6 +22,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
   columnWidth,
   todayColor,
   weekendColor,
+  holidayDates,
   rtl,
 }) => {
   let y = 0;
@@ -77,7 +79,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
       />
     );
 
-    if (weekendColor !== "transparent" && dates[i + 1] && [0,6].includes(dates[i + 1].getDay())) {
+    if (weekendColor !== "transparent" && dates[i + 1] && ([0,6].includes(dates[i + 1].getDay()) || holidayDates.some((data: any) => data.getDate() === dates[i + 1].getDate()))) {
       weekends.push(
         <rect
           key={"WeekendColumn" + i}
