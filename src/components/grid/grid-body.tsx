@@ -79,7 +79,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
       />
     );
 
-    if (weekendColor !== "transparent" && dates[i + 1] && ([0,6].includes(dates[i + 1].getDay()) || holidayDates.some((data: any) => data.getDate() === dates[i + 1].getDate()))) {
+    if (weekendColor !== "transparent" && dates[i] && ([0,6].includes(dates[i].getDay()) || holidayDates.some((data: Date) => data.getDate() === dates[i].getDate()))) {
       weekends.push(
         <rect
           key={"WeekendColumn" + i}
