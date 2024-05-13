@@ -45,7 +45,11 @@ export const GridBody: React.FC<GridBodyProps> = ({
         y={y}
         width={svgWidth}
         height={rowHeight}
-        className={task?.parentTask ? styles.gridRowTask : styles.gridRowSubtask}
+        className={() => {
+          if(task.parentTask) 
+            return styles.gridRowTask 
+          else 
+            return styles.gridRowSubtask}}
       />
     );
     rowLines.push(
