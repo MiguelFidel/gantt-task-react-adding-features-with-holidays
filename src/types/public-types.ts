@@ -38,6 +38,7 @@ export interface Task {
   links?: Array<Link>;
   hideChildren?: boolean;
   displayOrder?: number;
+  parentTask: boolean;
 }
 
 export interface EventOption {
