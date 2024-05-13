@@ -1,10 +1,14 @@
-.gridRow {
-  fill: #fff;
+.gridRowTask {
+  fill: #e6e6e6;
 }
 
-.gridRow:nth-child(even) {
-  fill: #f5f5f5;
+.gridRowSubtask {
+  fill: #f3f5f9;
 }
+
+/* .gridRow:nth-child(even) {
+  fill: #f5f5f5;
+} */
 
 .gridRowLine {
   stroke: #ebeff2;
