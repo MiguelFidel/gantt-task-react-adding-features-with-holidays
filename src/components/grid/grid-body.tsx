@@ -45,7 +45,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         y={y}
         width={svgWidth}
         height={rowHeight}
-        fill={task.parentTask ? "#f3f5f9" : "#e6e6e6"}
+        fill={task.parentTask ? "#e6e6e6" : "#f3f5f9"}
       />
     );
     rowLines.push(
