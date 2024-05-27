@@ -382,26 +382,28 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   const handleDragStart = (event: any) => {
       const startX = event.pageX - scrollX;
       const startY = event.pageY - scrollY;
-      const scrollLeft = scrollX;
-      const scrollTop = scrollY;
-      mouseCoords.current = { startX, startY, scrollLeft, scrollTop }
+      mouseCoords.current = { startX, startY }
       setIsMouseDown(true)
-      document.body.style.cursor = "grabbing"
   }
   const handleDragEnd = () => {
       setIsMouseDown(false)
-      document.body.style.cursor = "grab"
   }
 
   const handleDrag = (event: any) => {
-      if (!isMouseDown) return;
+    if (!isMouseDown) return;
       event.preventDefault();
+
+    if (scrollY !== event.currentTarget.scrollTop && scrollX !== event.currentTarget.scrollLeft && !ignoreScrollEvent) {
       const x  = event.pageX - scrollX;
       const y  = event.pageY - scrollY;
       const walkX  = (x - mouseCoords.current.startX);
       const walkY  = (y - mouseCoords.current.startY);
       setScrollX(mouseCoords.current.scrollLeft - walkX);
       setScrollY(mouseCoords.current.scrollTop - walkY);
+      setIgnoreScrollEvent(true);
+    } else {
+      setIgnoreScrollEvent(false);
+    }
   }
 
   /**
@@ -500,19 +502,23 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         onKeyDown={handleKeyDown}
         tabIndex={0}
         ref={wrapperRef}
-        onMouseDown={handleDragStart} 
-        onMouseUp={handleDragEnd} 
-        onMouseMove={handleDrag}
       >
         {listCellWidth && <TaskList {...tableProps} />}
-        <TaskGantt
-          gridProps={gridProps}
-          calendarProps={calendarProps}
-          barProps={barProps}
-          ganttHeight={ganttHeight}
-          scrollY={scrollY}
-          scrollX={scrollX}
-        />
+        <div
+          onMouseDown={handleDragStart} 
+          onMouseUp={handleDragEnd} 
+          onMouseMove={handleDrag}
+          style={{cursor: isMouseDown: 'grabbing' : 'grab'}}
+        >
+          <TaskGantt
+            gridProps={gridProps}
+            calendarProps={calendarProps}
+            barProps={barProps}
+            ganttHeight={ganttHeight}
+            scrollY={scrollY}
+            scrollX={scrollX}
+          />
+        </div>
         {ganttEvent.changedTask && (
           <Tooltip
             arrowIndent={arrowIndent}
