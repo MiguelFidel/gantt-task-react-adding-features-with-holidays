@@ -398,8 +398,8 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
       event.preventDefault();
       const x  = event.pageX - scrollX;
       const y  = event.pageY - scrollY;
-      const walkX  = (x - mouseCoords.current.startX) * 1.5;
-      const walkY  = (y - mouseCoords.current.startY) * 1.5;
+      const walkX  = (x - mouseCoords.current.startX);
+      const walkY  = (y - mouseCoords.current.startY);
       setScrollX(mouseCoords.current.scrollLeft - walkX);
       setScrollY(mouseCoords.current.scrollTop - walkY);
   }
