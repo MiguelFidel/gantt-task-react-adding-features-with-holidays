@@ -508,7 +508,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
           onMouseDown={handleDragStart} 
           onMouseUp={handleDragEnd} 
           onMouseMove={handleDrag}
-          style={{cursor: isMouseDown: 'grabbing' : 'grab'}}
+          style={{cursor: isMouseDown ? 'grabbing' : 'grab'}}
         >
           <TaskGantt
             gridProps={gridProps}
