@@ -43,7 +43,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         key={"Row" + task.id}
         x="0"
         y={y}
-        width={svgWidth}
+        width={isNaN(svgWidth) ? 0 : svgWidth}
         height={rowHeight}
         fill={task.parentTask ? "#e6e6e6" : "#f3f5f9"}
       />
@@ -85,7 +85,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
           key={"WeekendColumn" + i}
           x={tickX + columnWidth}
           y={0}
-          width={columnWidth}
+          width={isNaN(columnWidth) ? 0 : columnWidth}
           height={y}
           fill={weekendColor}
         />
@@ -110,7 +110,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         <rect
           x={tickX}
           y={0}
-          width={columnWidth}
+          width={isNaN(columnWidth) ? 0 : columnWidth}
           height={y}
           fill={todayColor}
         />
@@ -127,7 +127,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         <rect
           x={tickX + columnWidth}
           y={0}
-          width={columnWidth}
+          width={isNaN(columnWidth) ? 0 : columnWidth}
           height={y}
           fill={todayColor}
         />

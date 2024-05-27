@@ -21,7 +21,7 @@ export const BarDateHandle: React.FC<BarDateHandleProps> = ({
     <rect
       x={x}
       y={y}
-      width={width}
+      width={isNaN(width) ? 0 : width}
       height={height}
       className={styles.barHandle}
       ry={barCornerRadius}

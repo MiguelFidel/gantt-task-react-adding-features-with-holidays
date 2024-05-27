@@ -337,7 +337,7 @@ export const Calendar: React.FC<CalendarProps> = ({
       <rect
         x={0}
         y={0}
-        width={columnWidth * dateSetup.dates.length}
+        width={isNaN(columnWidth * dateSetup.dates.length) ? 0 : columnWidth * dateSetup.dates.length}
         height={headerHeight}
         className={styles.calendarHeader}
       />
