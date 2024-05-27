@@ -502,14 +502,12 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         onKeyDown={handleKeyDown}
         tabIndex={0}
         ref={wrapperRef}
+        onMouseDown={handleDragStart} 
+        onMouseUp={handleDragEnd} 
+        onMouseMove={handleDrag}
+        style={{cursor: isMouseDown ? 'grabbing' : 'grab'}}
       >
         {listCellWidth && <TaskList {...tableProps} />}
-        <div
-          onMouseDown={handleDragStart} 
-          onMouseUp={handleDragEnd} 
-          onMouseMove={handleDrag}
-          style={{cursor: isMouseDown ? 'grabbing' : 'grab'}}
-        >
           <TaskGantt
             gridProps={gridProps}
             calendarProps={calendarProps}
@@ -518,7 +516,6 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
             scrollY={scrollY}
             scrollX={scrollX}
           />
-        </div>
         {ganttEvent.changedTask && (
           <Tooltip
             arrowIndent={arrowIndent}
