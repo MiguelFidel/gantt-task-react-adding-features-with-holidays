@@ -380,11 +380,10 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   };
 
   const handleDragStart = (event: any) => {
-      const slider  = wrapperRef.current.children[0];
       const startX = event.pageX - scrollX;
       const startY = event.pageY - scrollY;
-      const scrollLeft = slider.scrollLeft;
-      const scrollTop = slider.scrollTop;
+      const scrollLeft = scrollX;
+      const scrollTop = scrollY;
       mouseCoords.current = { startX, startY, scrollLeft, scrollTop }
       setIsMouseDown(true)
       document.body.style.cursor = "grabbing"
