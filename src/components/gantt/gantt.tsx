@@ -380,10 +380,9 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   };
 
   const handleDragStart = (event: any) => {
-      if (!wrapperRef.current) return
       const slider  = wrapperRef.current.children[0];
-      const startX = event.pageX - slider.offsetLeft;
-      const startY = event.pageY - slider.offsetTop;
+      const startX = event.pageX - scrollX;
+      const startY = event.pageY - scrollY;
       const scrollLeft = slider.scrollLeft;
       const scrollTop = slider.scrollTop;
       mouseCoords.current = { startX, startY, scrollLeft, scrollTop }
@@ -392,16 +391,14 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   }
   const handleDragEnd = () => {
       setIsMouseDown(false)
-      if (!wrapperRef.current) return
       document.body.style.cursor = "grab"
   }
 
   const handleDrag = (event: any) => {
-      if (!isMouseDown || ! wrapperRef.current) return;
+      if (!isMouseDown) return;
       event.preventDefault();
-      const slider = wrapperRef.current.children[0];
-      const x  = event.pageX - slider.offsetLeft;
-      const y  = event.pageY - slider.offsetTop;
+      const x  = event.pageX - scrollX;
+      const y  = event.pageY - scrollY;
       const walkX  = (x - mouseCoords.current.startX) * 1.5;
       const walkY  = (y - mouseCoords.current.startY) * 1.5;
       setScrollX(mouseCoords.current.scrollLeft - walkX);
