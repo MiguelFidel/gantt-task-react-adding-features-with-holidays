@@ -83,6 +83,13 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     undefined
   );
 
+  const mouseCoords = useRef<any>({
+    startX: 0,
+    startY: 0,
+    scrollLeft: 0,
+    scrollTop: 0
+  });
+
   const [taskListWidth, setTaskListWidth] = useState(0);
   const [svgContainerWidth, setSvgContainerWidth] = useState(0);
   const [svgContainerHeight, setSvgContainerHeight] = useState(ganttHeight);
@@ -104,6 +111,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   const [scrollY, setScrollY] = useState(0);
   const [scrollX, setScrollX] = useState(-1);
   const [ignoreScrollEvent, setIgnoreScrollEvent] = useState(false);
+  const [isMouseDown, setIsMouseDown] = useState(false);
 
   // task change events
   useEffect(() => {
@@ -371,6 +379,35 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     setIgnoreScrollEvent(true);
   };
 
+  const handleDragStart = (event: any) => {
+      if (!wrapperRef.current) return
+      const slider  = wrapperRef.current.children[0];
+      const startX = event.pageX - slider.offsetLeft;
+      const startY = event.pageY - slider.offsetTop;
+      const scrollLeft = slider.scrollLeft;
+      const scrollTop = slider.scrollTop;
+      mouseCoords.current = { startX, startY, scrollLeft, scrollTop }
+      setIsMouseDown(true)
+      document.body.style.cursor = "grabbing"
+  }
+  const handleDragEnd = () => {
+      setIsMouseDown(false)
+      if (!wrapperRef.current) return
+      document.body.style.cursor = "grab"
+  }
+
+  const handleDrag = (event: any) => {
+      if (!isMouseDown || ! wrapperRef.current) return;
+      event.preventDefault();
+      const slider = wrapperRef.current.children[0];
+      const x  = event.pageX - slider.offsetLeft;
+      const y  = event.pageY - slider.offsetTop;
+      const walkX  = (x - mouseCoords.current.startX) * 1.5;
+      const walkY  = (y - mouseCoords.current.startY) * 1.5;
+      setScrollX(mouseCoords.current.scrollLeft - walkX);
+      setScrollY(mouseCoords.current.scrollTop - walkY);
+  }
+
   /**
    * Task select event
    */
@@ -467,6 +504,9 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         onKeyDown={handleKeyDown}
         tabIndex={0}
         ref={wrapperRef}
+        onMouseDown={handleDragStart} 
+        onMouseUp={handleDragEnd} 
+        onMouseMove={handleDrag}
       >
         {listCellWidth && <TaskList {...tableProps} />}
         <TaskGantt
