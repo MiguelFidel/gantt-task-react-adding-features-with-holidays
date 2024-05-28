@@ -379,32 +379,33 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     setIgnoreScrollEvent(true);
   };
 
-  const handleDragStart = (event: any) => {
-      const startX = event.pageX - scrollX;
-      const startY = event.pageY - scrollY;
-      mouseCoords.current = { startX, startY }
-      setIsMouseDown(true)
-  }
-  const handleDragEnd = () => {
-      setIsMouseDown(false)
-  }
+  // const handleDragStart = (event: any) => {
+  //     const startX = event.pageX - scrollX;
+  //     const startY = event.pageY - scrollY;
+  //     mouseCoords.current = { startX, startY }
+  //     setIsMouseDown(true)
+  // }
 
-  const handleDrag = (event: MouseEvent) => {
-    if (!isMouseDown) return;
-      event.preventDefault();
+  // const handleDragEnd = () => {
+  //     setIsMouseDown(false)
+  // }
 
-    if (!ignoreScrollEvent) {
-      const x  = event.pageX - scrollX;
-      const y  = event.pageY - scrollY;
-      const walkX  = (x - mouseCoords.current.startX);
-      const walkY  = (y - mouseCoords.current.startY);
-      setScrollX(mouseCoords.current.scrollLeft - walkX);
-      setScrollY(mouseCoords.current.scrollTop - walkY);
-      setIgnoreScrollEvent(true);
-    } else {
-      setIgnoreScrollEvent(false);
-    }
-  }
+  // const handleDrag = (event: MouseEvent) => {
+  //   if (!isMouseDown) return;
+  //     event.preventDefault();
+
+  //   if (!ignoreScrollEvent) {
+  //     const x  = event.pageX - scrollX;
+  //     const y  = event.pageY - scrollY;
+  //     const walkX  = (x - mouseCoords.current.startX);
+  //     const walkY  = (y - mouseCoords.current.startY);
+  //     setScrollX(mouseCoords.current.scrollLeft - walkX);
+  //     setScrollY(mouseCoords.current.scrollTop - walkY);
+  //     setIgnoreScrollEvent(true);
+  //   } else {
+  //     setIgnoreScrollEvent(false);
+  //   }
+  // }
 
   /**
    * Task select event
