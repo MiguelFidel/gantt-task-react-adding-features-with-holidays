@@ -83,12 +83,12 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     undefined
   );
 
-  const mouseCoords = useRef<any>({
-    startX: 0,
-    startY: 0,
-    scrollLeft: 0,
-    scrollTop: 0
-  });
+  // const mouseCoords = useRef<any>({
+  //   startX: 0,
+  //   startY: 0,
+  //   scrollLeft: 0,
+  //   scrollTop: 0
+  // });
 
   const [taskListWidth, setTaskListWidth] = useState(0);
   const [svgContainerWidth, setSvgContainerWidth] = useState(0);
@@ -111,7 +111,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   const [scrollY, setScrollY] = useState(0);
   const [scrollX, setScrollX] = useState(-1);
   const [ignoreScrollEvent, setIgnoreScrollEvent] = useState(false);
-  const [isMouseDown, setIsMouseDown] = useState(false);
+  //const [isMouseDown, setIsMouseDown] = useState(false);
 
   // task change events
   useEffect(() => {
