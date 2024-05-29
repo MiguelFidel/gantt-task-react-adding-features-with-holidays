@@ -11,11 +11,9 @@
 } */
 
 .gridRowLine {
-  /* stroke: #e6e4e4; */
-  border-bottom: 1px solid #e6e4e4;
+  stroke: #e6e4e4;
 }
 
 .gridTick {
-  /* stroke: #e6e4e4; */
-  border-bottom: 1px solid #e6e4e4;
+  stroke: #e6e4e4;
 }
