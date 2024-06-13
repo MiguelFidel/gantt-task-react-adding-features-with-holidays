@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { GridProps, Grid } from "../grid/grid";
 import { CalendarProps, Calendar } from "../calendar/calendar";
 import { TaskGanttContentProps, TaskGanttContent } from "./task-gantt-content";
