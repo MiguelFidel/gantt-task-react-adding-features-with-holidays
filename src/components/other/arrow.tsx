@@ -54,7 +54,9 @@ export const Arrow: React.FC<ArrowProps> = ({
       stroke={strokeWidth}
       onMouseEnter={() => setStrokeWidth("2")} 
       onMouseLeave={() => setStrokeWidth(strokeWidthDefault)} 
-      onClick={clickLine}>
+      onClick={clickLine}
+      style={{pointerEvents: 'none'}}
+      >
       <path strokeWidth={strokeWidth} d={path} fill="none" />
       <polygon points={trianglePoints} />
     </g>
