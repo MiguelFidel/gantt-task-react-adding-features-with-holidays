@@ -59,6 +59,7 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
   onClickLine,
   onDelete,
   allowProjectDateChange,
+  setOnHover,
 }) => {
   const point = svg?.current?.createSVGPoint();
   const [xStep, setXStep] = useState(0);
