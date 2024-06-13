@@ -236,7 +236,7 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
         });
       }
     } else if (action === "mouseleave") {
-      setOnHover(0);
+      setOnHover('0');
       if (ganttEvent.action === "mouseenter") {
         setGanttEvent({ action: "" });
       }
