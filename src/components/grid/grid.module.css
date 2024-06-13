@@ -18,6 +18,10 @@
   fill: #c9c6c6b0;
 }
 
+.gridColor{
+  pointer-events: none;
+}
+
 /* .gridRow:nth-child(even) {
   fill: #f5f5f5;
 } */

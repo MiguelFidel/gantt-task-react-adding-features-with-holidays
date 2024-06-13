@@ -94,8 +94,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
           width={isNaN(columnWidth) ? 0 : columnWidth}
           height={y}
           fill={weekendColor}
-          onMouseEnter={() => setOnHover(task.id)}
-          onMouseLeave={() => setOnHover('0')}
+          className={styles.gridColor}
         />
       );
     }
@@ -121,8 +120,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
           width={isNaN(columnWidth) ? 0 : columnWidth}
           height={y}
           fill={todayColor}
-          onMouseEnter={() => setOnHover(task.id)}
-          onMouseLeave={() => setOnHover('0')}
+          className={styles.gridColor}
         />
       );
     }
