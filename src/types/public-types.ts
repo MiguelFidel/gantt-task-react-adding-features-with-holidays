@@ -87,7 +87,7 @@ export interface EventOption {
   /**
    * Allow project date change
    */
-  setOnHover?: (taskId: string) => void;
+  setOnHover?: (task: string) => void;
   allowProjectDateChange?: boolean;
 }
 
