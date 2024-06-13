@@ -11,8 +11,6 @@ export type TaskGanttProps = {
   ganttHeight: number;
   scrollY: number;
   scrollX: number;
-  onHover: string;
-  setOnHover: (taskId: string) => void;
   
 };
 export const TaskGantt: React.FC<TaskGanttProps> = ({
