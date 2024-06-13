@@ -481,7 +481,6 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     onDelete,
     allowProjectDateChange,
     onHover,
-    setOnHover,
   };
 
   const tableProps: TaskListProps = {
