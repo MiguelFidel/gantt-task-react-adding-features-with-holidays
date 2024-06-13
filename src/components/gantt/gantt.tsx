@@ -441,6 +441,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     weekendColor,
     holidayDates,
     rtl,
+    onHover,
   };
   const calendarProps: CalendarProps = {
     dateSetup,
