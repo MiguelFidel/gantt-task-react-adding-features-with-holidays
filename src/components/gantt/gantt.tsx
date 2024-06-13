@@ -477,7 +477,9 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     onClick,
     onClickLine,
     onDelete,
-    allowProjectDateChange
+    allowProjectDateChange,
+    onHover,
+    setOnHover,
   };
 
   const tableProps: TaskListProps = {
@@ -497,6 +499,8 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     onExpanderClick: handleExpanderClick,
     TaskListHeader,
     TaskListTable,
+    onHover,
+    setOnHover,
   };
   return (
     <div>
@@ -506,8 +510,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         tabIndex={0}
         ref={wrapperRef}
       >
-        {listCellWidth && <TaskList {...tableProps} onHover={onHover}
-            setOnHover={setOnHover} />}
+        {listCellWidth && <TaskList {...tableProps} />}
           <TaskGantt
             gridProps={gridProps}
             calendarProps={calendarProps}

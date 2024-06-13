@@ -72,8 +72,8 @@ export const TaskGantt: React.FC<TaskGanttProps> = ({
           fontFamily={barProps.fontFamily}
           ref={ganttSVGRef}
         >
-          <Grid {...gridProps} onHover={onHover}/>
-          <TaskGanttContent {...newBarProps} onHover={onHover} setOnHover={setOnHover} />
+          <Grid {...gridProps}/>
+          <TaskGanttContent {...newBarProps} />
         </svg>
       </div>
     </div>
