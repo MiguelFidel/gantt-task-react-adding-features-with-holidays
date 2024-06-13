@@ -62,6 +62,8 @@ export const GridBody: React.FC<GridBodyProps> = ({
         x2={svgWidth}
         y2={y + rowHeight}
         className={styles.gridRowLine}
+        onMouseEnter={() => setOnHover(task.id)}
+        onMouseLeave={() => setOnHover('0')}
       />
     );
     y += rowHeight;
