@@ -14,6 +14,7 @@ export type GridBodyProps = {
   holidayDates: Date[];
   rtl: boolean;
   onHover: string;
+  setOnHover: (taskId: string) => void;
 };
 export const GridBody: React.FC<GridBodyProps> = ({
   tasks,
@@ -26,6 +27,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
   holidayDates,
   rtl,
   onHover,
+  setOnHover
 }) => {
   let y = 0;
   const gridRows: ReactChild[] = [];
@@ -48,6 +50,8 @@ export const GridBody: React.FC<GridBodyProps> = ({
         width={isNaN(svgWidth) ? 0 : svgWidth}
         height={rowHeight}
         className={onHover === task.id ? styles.onHover : task.parentTask ? styles.gridRowTask : styles.gridRowSubtask}
+        onMouseEnter={() => setOnHover(task.id)}
+        onMouseLeave={() => setOnHover('0')}
       />
     );
     rowLines.push(

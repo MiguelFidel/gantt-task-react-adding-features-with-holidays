@@ -87,7 +87,6 @@ export interface EventOption {
   /**
    * Allow project date change
    */
-  setOnHover?: (task: string) => void;
   allowProjectDateChange?: boolean;
 }
 
@@ -135,7 +134,6 @@ export interface StylingOption {
   todayColor?: string;
   weekendColor?: string;
   holidayDates?: Date[];
-  onHover?: string;
   TooltipContent?: React.FC<{
     task: Task;
     fontSize: string;
