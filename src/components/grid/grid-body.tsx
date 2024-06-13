@@ -47,7 +47,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         y={y}
         width={isNaN(svgWidth) ? 0 : svgWidth}
         height={rowHeight}
-        className={onHover ? styles.onHover : task.parentTask ? styles.gridRowTask : styles.gridRowSubtask}
+        className={onHover === task.id ? styles.onHover : task.parentTask ? styles.gridRowTask : styles.gridRowSubtask}
       />
     );
     rowLines.push(
