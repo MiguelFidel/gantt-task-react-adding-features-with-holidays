@@ -79,6 +79,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     const [startDate, endDate] = ganttDateRange(tasks, viewMode, preStepsCount);
     return { viewMode, dates: seedDates(startDate, endDate, viewMode) };
   });
+  const [onHover, setOnHover] =useState<any>(0);
   const [currentViewDate, setCurrentViewDate] = useState<Date | undefined>(
     undefined
   );
@@ -504,12 +505,15 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         tabIndex={0}
         ref={wrapperRef}
       >
-        {listCellWidth && <TaskList {...tableProps} />}
+        {listCellWidth && <TaskList {...tableProps} onHover={onHover}
+            setOnHover={setOnHover} />}
           <TaskGantt
             gridProps={gridProps}
             calendarProps={calendarProps}
             barProps={barProps}
             ganttHeight={ganttHeight}
+            onHover={onHover}
+            setOnHover={setOnHover}
             scrollY={scrollY}
             scrollX={scrollX}
           />

@@ -31,8 +31,10 @@ export type TaskListProps = {
     locale: string;
     tasks: Task[];
     selectedTaskId: string;
+    onHover: string;
     setSelectedTask: (taskId: string) => void;
     onExpanderClick: (task: Task) => void;
+    setOnHover: (taskId: string) => void;
   }>;
 };
 

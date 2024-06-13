@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { GridProps, Grid } from "../grid/grid";
 import { CalendarProps, Calendar } from "../calendar/calendar";
 import { TaskGanttContentProps, TaskGanttContent } from "./task-gantt-content";
@@ -11,6 +11,9 @@ export type TaskGanttProps = {
   ganttHeight: number;
   scrollY: number;
   scrollX: number;
+  onHover: string;
+  setOnHover: (taskId: string) => void;
+  
 };
 export const TaskGantt: React.FC<TaskGanttProps> = ({
   gridProps,
@@ -19,6 +22,8 @@ export const TaskGantt: React.FC<TaskGanttProps> = ({
   ganttHeight,
   scrollY,
   scrollX,
+  onHover,
+  setOnHover,
 }) => {
   const ganttSVGRef = useRef<SVGSVGElement>(null);
   const horizontalContainerRef = useRef<HTMLDivElement>(null);
@@ -67,8 +72,8 @@ export const TaskGantt: React.FC<TaskGanttProps> = ({
           fontFamily={barProps.fontFamily}
           ref={ganttSVGRef}
         >
-          <Grid {...gridProps} />
-          <TaskGanttContent {...newBarProps} />
+          <Grid {...gridProps} onHover={onHover}/>
+          <TaskGanttContent {...newBarProps} onHover={onHover} setOnHover={setOnHover} />
         </svg>
       </div>
     </div>

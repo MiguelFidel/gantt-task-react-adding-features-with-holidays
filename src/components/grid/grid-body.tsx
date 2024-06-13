@@ -13,6 +13,7 @@ export type GridBodyProps = {
   weekendColor: string;
   holidayDates: Date[];
   rtl: boolean;
+  onHover: string;
 };
 export const GridBody: React.FC<GridBodyProps> = ({
   tasks,
@@ -24,6 +25,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
   weekendColor,
   holidayDates,
   rtl,
+  onHover,
 }) => {
   let y = 0;
   const gridRows: ReactChild[] = [];
@@ -45,7 +47,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         y={y}
         width={isNaN(svgWidth) ? 0 : svgWidth}
         height={rowHeight}
-        className={task.parentTask ? styles.gridRowTask : styles.gridRowSubtask}
+        className={onHover ? styles.onHover : task.parentTask ? styles.gridRowTask : styles.gridRowSubtask}
       />
     );
     rowLines.push(

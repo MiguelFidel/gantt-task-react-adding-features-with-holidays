@@ -27,9 +27,11 @@ export type TaskGanttContentProps = {
   fontSize: string;
   fontFamily: string;
   rtl: boolean;
+  onHover: string;
   setGanttEvent: (value: GanttEvent) => void;
   setFailedTask: (value: BarTask | null) => void;
   setSelectedTask: (taskId: string) => void;
+  setOnHover: (taskId: string) => void;
 } & EventOption;
 
 export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
@@ -224,6 +226,7 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
     }
     // Mouse Events
     else if (action === "mouseenter") {
+      setOnHover(task.id);
       if (!ganttEvent.action) {
         setGanttEvent({
           action,
@@ -232,6 +235,7 @@ export const TaskGanttContent: React.FC<TaskGanttContentProps> = ({
         });
       }
     } else if (action === "mouseleave") {
+      setOnHover(0);
       if (ganttEvent.action === "mouseenter") {
         setGanttEvent({ action: "" });
       }
