@@ -2,8 +2,16 @@
   fill: #e6e6e6;
 }
 
+.gridRowTask:hover {
+  fill: #c9c6c6b0;
+}
+
 .gridRowSubtask {
   fill: #f3f5f9;
+}
+
+.gridRowSubtask:hover {
+  fill: #c9c6c6b0;
 }
 
 /* .gridRow:nth-child(even) {
