@@ -58,6 +58,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   arrowIndent = 20,
   todayColor = "rgba(252, 248, 227, 1)",
   weekendColor = "transparent",
+  onHover = '0',
   holidayDates = [],
   viewDate,
   TooltipContent = StandardTooltipContent,
@@ -71,6 +72,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   onDelete,
   onSelect,
   onExpanderClick,
+  setOnHover,
   allowProjectDateChange,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -79,7 +81,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     const [startDate, endDate] = ganttDateRange(tasks, viewMode, preStepsCount);
     return { viewMode, dates: seedDates(startDate, endDate, viewMode) };
   });
-  const [onHover, setOnHover] =useState<string>('0');
+  // const [onHover, setOnHover] =useState<string>('0');
   const [currentViewDate, setCurrentViewDate] = useState<Date | undefined>(
     undefined
   );
