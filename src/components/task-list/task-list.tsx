@@ -15,7 +15,7 @@ export type TaskListProps = {
   taskListRef: React.RefObject<HTMLDivElement>;
   horizontalContainerClass?: string;
   selectedTask: BarTask | undefined;
-  onHover: string;
+  onHover: number;
   setOnHover: (taskId: string) => void;
   setSelectedTask: (task: string) => void;
   onExpanderClick: (task: Task) => void;
@@ -33,7 +33,7 @@ export type TaskListProps = {
     locale: string;
     tasks: Task[];
     selectedTaskId: string;
-    onHover: string;
+    onHover: number;
     setSelectedTask: (taskId: string) => void;
     onExpanderClick: (task: Task) => void;
     setOnHover: (taskId: string) => void;

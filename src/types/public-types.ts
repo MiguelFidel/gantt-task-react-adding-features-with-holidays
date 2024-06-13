@@ -157,9 +157,11 @@ export interface StylingOption {
     locale: string;
     tasks: Task[];
     selectedTaskId: string;
+    onHover: string;
     /**
      * Sets selected task by id
      */
+    setOnHover: (taskId: string) => void;
     setSelectedTask: (taskId: string) => void;
     onExpanderClick: (task: Task) => void;
   }>;
